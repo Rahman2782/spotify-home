@@ -2,8 +2,8 @@ import React from 'react'
 
 function page() {
   return (
-    <div>
-      <h1>Login here</h1>
+    <div className='bg-[#131419] h-screen'>
+      <h1 className='text-white'>Login here</h1>
     </div>
   )
 }
