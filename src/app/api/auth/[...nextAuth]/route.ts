@@ -3,7 +3,7 @@ import Spotify from "next-auth/providers/spotify";
 import spotfyApi, { LOGIN_URL } from "../../../../../lib/spotify";
 import { JWT } from "next-auth/jwt";
 
-async function refreshAccessToken(token: JWT) { //TYPE ERROR WITH KWT - NEEDED IMPORT
+async function refreshAccessToken(token: JWT) { //TYPE ERROR WITH JWT - NEEDED IMPORT
     try {
         spotfyApi.setAccessToken(token.accessToken);
         spotfyApi.setRefreshToken(token.refreshToken);
@@ -31,8 +31,8 @@ const handler = NextAuth({
     providers: [
         Spotify({
             clientId: process.env.SPOTIFY_CLIENT_ID!,
-          clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
-            authorization: LOGIN_URL, //change to actual url later
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
+            authorization: LOGIN_URL, 
         })
     ],
     secret: process.env.JWT_SECRET, //encrypts the jwt tokens passed by spotify
